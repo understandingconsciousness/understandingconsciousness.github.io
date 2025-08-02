@@ -1,0 +1,49 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'My Hugo Blog'
+theme = 'PaperMod'
+
+[params]
+  env = "production"
+  title = "My Hugo Blog"
+  description = "A simple blog built with Hugo"
+  keywords = ["Blog", "Portfolio", "PaperMod"]
+  author = "Your Name"
+  
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = false
+  tocopen = false
+
+  [params.homeInfoParams]
+    Title = "Welcome to My Blog"
+    Content = "This is a Hugo blog using the PaperMod theme"
+
+[[menu.main]]
+  identifier = "home"
+  name = "Home"
+  url = "/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "posts"
+  name = "Posts"
+  url = "/posts/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "about"
+  name = "About"
+  url = "/about/"
+  weight = 30
