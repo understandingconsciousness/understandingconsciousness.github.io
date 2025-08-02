@@ -1,17 +1,17 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'My Hugo Blog'
+title = 'Understanding Consciousness'
 theme = 'PaperMod'
 
 [params]
   env = "production"
-  title = "My Hugo Blog"
+  title = "Understanding Consciousness"
   description = "A simple blog built with Hugo"
   keywords = ["Blog", "Portfolio", "PaperMod"]
   author = "Your Name"
   
   ShowReadingTime = true
-  ShowShareButtons = true
+  ShowShareButtons = false
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
@@ -25,6 +25,7 @@ theme = 'PaperMod'
   hideSummary = false
   showtoc = false
   tocopen = false
+  hidePoweredBy = true
 
   [params.homeInfoParams]
     Title = "Welcome to My Blog"
