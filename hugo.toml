@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://yourusername.github.io/HugoBlog/'
 languageCode = 'en-us'
 title = 'Understanding Consciousness'
 theme = 'PaperMod'
