@@ -1,12 +1,12 @@
 ---
-title: "My First Post"
-date: 2024-01-01T12:00:00Z
+title: "Intentions"
+date: 2025-08-01T12:00:00Z
 draft: false
-tags: ["hugo", "blog", "first-post"]
+tags: ["intentions", "blog", "first-post"]
 categories: ["General"]
 ---
 
-# Welcome to My Hugo Blog!
+# What does it mean to set intentions?
 
 This is my first blog post using Hugo and the PaperMod theme. 
 
