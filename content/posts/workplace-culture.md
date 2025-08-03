@@ -1,6 +1,6 @@
 ---
 title: "Your Workplace Isn't Your Family"
-date: 2024-01-02T12:00:00Z
+date: 2025-08-02T12:00:00Z
 draft: false
 tags: ["workplace", "culture", "leadership", "work-life-balance"]
 categories: ["Career", "Leadership"]
