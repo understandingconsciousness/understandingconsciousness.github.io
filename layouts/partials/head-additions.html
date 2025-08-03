@@ -1,0 +1,84 @@
+<!-- Custom head additions for Understanding Consciousness Blog -->
+<!-- Google Fonts for enhanced typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "favicon.ico" | relURL }}">
+<link rel="icon" type="image/x-icon" href="{{ "favicon.ico" | relURL }}">
+
+<!-- Meta tags for better SEO and social sharing -->
+<meta name="theme-color" content="#6a5acd">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<!-- OpenGraph meta tags for better social media sharing -->
+<meta property="og:site_name" content="Understanding Consciousness">
+<meta property="og:type" content="website">
+{{ if .IsPage }}
+<meta property="og:type" content="article">
+<meta property="article:author" content="Understanding Consciousness">
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+{{ end }}
+
+<!-- Twitter Card meta tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@understandingconsciousness">
+
+<!-- Additional meta for mindfulness and consciousness keywords -->
+<meta name="keywords" content="mindfulness, consciousness, meditation, personal growth, spirituality, self-awareness, mindful living, inner peace, awareness, presence, enlightenment, wisdom">
+<meta name="author" content="Understanding Consciousness">
+<meta name="robots" content="index, follow">
+<meta name="language" content="en-US">
+
+<!-- JSON-LD structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Understanding Consciousness",
+  "description": "A mindful blog exploring consciousness, life reflections, and personal growth through meditation and thoughtful observation",
+  "url": "{{ .Site.BaseURL }}",
+  "author": {
+    "@type": "Person",
+    "name": "Understanding Consciousness"
+  },
+  "blogPost": [
+    {{ range first 5 (where .Site.RegularPages "Type" "posts") }}
+    {
+      "@type": "BlogPosting",
+      "headline": "{{ .Title }}",
+      "description": "{{ .Summary | truncate 160 }}",
+      "url": "{{ .Permalink }}",
+      "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+      "author": {
+        "@type": "Person",
+        "name": "Understanding Consciousness"
+      },
+      "keywords": [{{ range .Params.tags }}"{{ . }}"{{ if not (last 1 $.Params.tags) }}, {{ end }}{{ end }}]
+    }{{ if not (last 1 (first 5 (where $.Site.RegularPages "Type" "posts"))) }},{{ end }}
+    {{ end }}
+  ]
+}
+</script>
+
+<!-- Preload critical resources -->
+<link rel="preload" href="{{ "css/custom.css" | relURL }}" as="style">
+
+<!-- Custom CSS variables based on site params -->
+<style>
+  :root {
+    --site-accent-color: {{ .Site.Params.accentColor | default "#6a5acd" }};
+    --site-background-color: {{ .Site.Params.backgroundColor | default "#ffffff" }};
+    --site-text-color: {{ .Site.Params.textColor | default "#333333" }};
+  }
+  
+  [data-theme="dark"] {
+    --site-background-color: {{ .Site.Params.darkBackgroundColor | default "#1a1a1a" }};
+    --site-text-color: {{ .Site.Params.darkTextColor | default "#e0e0e0" }};
+  }
+</style>

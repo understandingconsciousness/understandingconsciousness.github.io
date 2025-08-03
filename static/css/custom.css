@@ -1,0 +1,477 @@
+/* Custom CSS for Understanding Consciousness Blog */
+/* Enhanced styling for PaperMod theme with mindfulness aesthetics */
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --consciousness-purple: #6a5acd;
+  --mindful-blue: #4a90e2;
+  --soft-lavender: #e6e6fa;
+  --warm-gold: #ffd700;
+  --serene-green: #8fbc8f;
+  --gentle-pink: #f8b2d8;
+  --text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --box-shadow-soft: 0 4px 20px rgba(0,0,0,0.08);
+  --box-shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+  --border-radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark mode variables */
+[data-theme="dark"] {
+  --primary-gradient: linear-gradient(135deg, #4c63d2 0%, #5a4fcf 100%);
+  --soft-lavender: #2d2b57;
+  --consciousness-purple: #8a7fd8;
+  --mindful-blue: #6bb6ff;
+}
+
+/* Typography Enhancements */
+body {
+  font-family: 'Inter', 'SF Pro Text', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cal Sans', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--consciousness-purple);
+  text-shadow: var(--text-shadow);
+}
+
+/* Header and Navigation Improvements */
+.header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(106, 90, 205, 0.1);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+  transition: var(--transition);
+}
+
+[data-theme="dark"] .header {
+  background: rgba(16, 16, 20, 0.95);
+  border-bottom: 1px solid rgba(138, 127, 216, 0.2);
+}
+
+.logo a {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav a {
+  position: relative;
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.nav a:hover {
+  background: var(--soft-lavender);
+  color: var(--consciousness-purple);
+  transform: translateY(-1px);
+  box-shadow: var(--box-shadow-soft);
+}
+
+/* Home Page Hero Section */
+.home-info {
+  background: var(--primary-gradient);
+  color: white;
+  border-radius: var(--border-radius);
+  padding: 3rem 2rem;
+  margin: 2rem 0;
+  box-shadow: var(--box-shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="grad" cx="50%" cy="50%"><stop offset="0%" stop-color="white" stop-opacity="0.1"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><circle cx="20" cy="20" r="2" fill="url(%23grad)"/><circle cx="80" cy="40" r="1" fill="url(%23grad)"/><circle cx="40" cy="80" r="1.5" fill="url(%23grad)"/></svg>') repeat;
+  opacity: 0.3;
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.home-info h1 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.home-info .home-info-content {
+  position: relative;
+  z-index: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Post Cards Enhancement */
+.post-entry {
+  background: white;
+  border: 1px solid rgba(106, 90, 205, 0.1);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: var(--box-shadow-soft);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.post-entry:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--box-shadow-hover);
+  border-color: var(--consciousness-purple);
+}
+
+.post-entry::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--primary-gradient);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.post-entry:hover::before {
+  transform: scaleX(1);
+}
+
+[data-theme="dark"] .post-entry {
+  background: rgba(16, 16, 20, 0.8);
+  border-color: rgba(138, 127, 216, 0.2);
+}
+
+.post-entry .entry-header h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.post-entry .entry-header h2 a {
+  color: var(--consciousness-purple);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.post-entry .entry-header h2 a:hover {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Meta information styling */
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.post-meta .i18n_list {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: var(--soft-lavender);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .post-meta .i18n_list {
+  background: rgba(138, 127, 216, 0.2);
+  color: #ccc;
+}
+
+/* Content Enhancement */
+.post-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.post-content h1, 
+.post-content h2, 
+.post-content h3 {
+  margin: 2rem 0 1rem 0;
+  position: relative;
+}
+
+.post-content h2::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 50%;
+  width: 4px;
+  height: 1.5rem;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+  transform: translateY(-50%);
+}
+
+.post-content blockquote {
+  background: var(--soft-lavender);
+  border-left: 4px solid var(--consciousness-purple);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  font-style: italic;
+  position: relative;
+}
+
+.post-content blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-size: 4rem;
+  color: var(--consciousness-purple);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+[data-theme="dark"] .post-content blockquote {
+  background: rgba(138, 127, 216, 0.1);
+}
+
+/* Code blocks */
+.post-content pre {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  overflow-x: auto;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+[data-theme="dark"] .post-content pre {
+  background: #1a1a2e;
+  border-color: #333;
+}
+
+/* Buttons and Interactive Elements */
+.read-more, .share-buttons a, .pagination a {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--box-shadow-soft);
+}
+
+.read-more:hover, .share-buttons a:hover, .pagination a:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* Tags */
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.post-tags a {
+  background: var(--soft-lavender);
+  color: var(--consciousness-purple);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: var(--transition);
+  border: 1px solid rgba(106, 90, 205, 0.2);
+}
+
+.post-tags a:hover {
+  background: var(--consciousness-purple);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--box-shadow-soft);
+}
+
+[data-theme="dark"] .post-tags a {
+  background: rgba(138, 127, 216, 0.2);
+  color: #ccc;
+  border-color: rgba(138, 127, 216, 0.3);
+}
+
+/* Footer */
+.footer {
+  background: var(--primary-gradient);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.footer a:hover {
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-info {
+    padding: 2rem 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .home-info h1 {
+    font-size: 2rem;
+  }
+  
+  .post-entry {
+    padding: 1rem;
+  }
+  
+  .post-content {
+    font-size: 1rem;
+  }
+  
+  .post-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Table of Contents */
+.toc {
+  background: var(--soft-lavender);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border: 1px solid rgba(106, 90, 205, 0.1);
+}
+
+[data-theme="dark"] .toc {
+  background: rgba(138, 127, 216, 0.1);
+  border-color: rgba(138, 127, 216, 0.2);
+}
+
+.toc-title {
+  font-weight: 600;
+  color: var(--consciousness-purple);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.toc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.toc ul ul {
+  padding-left: 1.5rem;
+}
+
+.toc li {
+  margin: 0.5rem 0;
+}
+
+.toc a {
+  color: #666;
+  text-decoration: none;
+  transition: var(--transition);
+  padding: 0.25rem 0;
+  display: block;
+}
+
+.toc a:hover {
+  color: var(--consciousness-purple);
+  padding-left: 0.5rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.post-entry, .home-info, .post-content {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Accessibility improvements */
+*:focus {
+  outline: 2px solid var(--consciousness-purple);
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-gradient);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  opacity: 0.8;
+}
+
+/* Print styles */
+@media print {
+  .header, .footer, .nav, .share-buttons, .toc {
+    display: none;
+  }
+  
+  .post-content {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+}

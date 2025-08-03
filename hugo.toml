@@ -5,45 +5,27 @@ theme = 'PaperMod'
 
 [params]
   env = "production"
-  title = "Understanding Consciousness"
-  description = "A simple blog built with Hugo"
-  keywords = ["Blog", "Portfolio", "PaperMod"]
-  
+  defaultTheme = "dark"
   ShowReadingTime = true
   ShowShareButtons = false
   ShowPostNavLinks = true
-  ShowBreadCrumbs = true
+  ShowBreadCrumbs = false
   ShowCodeCopyButtons = true
-  ShowWordCount = true
-  ShowRssButtonInSectionTermList = true
-  UseHugoToc = true
-  disableSpecial1stPost = false
-  disableScrollToTop = false
-  comments = false
-  hidemeta = false
-  hideSummary = false
-  showtoc = false
-  tocopen = false
+  ShowWordCount = false
   hidePoweredBy = true
-
+  
   [params.homeInfoParams]
-    Title = "Mindful Reflections"
+    Title = "Understanding Consciousness"
     Content = "Here, I share honest reflections on life and the discoveries that emerge from quiet moments of meditation and mindful observation."
-
-[[menu.main]]
-  identifier = "home"
-  name = "Home"
-  url = "/"
-  weight = 10
 
 [[menu.main]]
   identifier = "posts"
   name = "Posts"
   url = "/posts/"
-  weight = 20
+  weight = 10
 
 [[menu.main]]
   identifier = "about"
   name = "About"
   url = "/about/"
-  weight = 30
+  weight = 20

@@ -1,3 +1,365 @@
+<!-- Custom footer for Understanding Consciousness Blog -->
 <footer class="footer">
-    <span>&copy; {{ now.Format "2006" }} {{ .Site.Title }}</span>
+    <div class="footer-content">
+        <!-- Main footer text -->
+        <div class="footer-main">
+            <p class="footer-title">🧠 Understanding Consciousness</p>
+            <p class="footer-description">
+                Exploring the depths of awareness through mindful observation and conscious living.
+                Every moment is an opportunity for deeper understanding.
+            </p>
+        </div>
+
+        <!-- Footer links and social -->
+        <div class="footer-links">
+            <div class="footer-section">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="{{ "/" | relURL }}">🏠 Home</a></li>
+                    <li><a href="{{ "/posts/" | relURL }}">📖 All Posts</a></li>
+                    <li><a href="{{ "/about/" | relURL }}">🧘‍♀️ About</a></li>
+                    <li><a href="{{ "/tags/" | relURL }}">🏷️ Topics</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="{{ "index.xml" | relURL }}" title="RSS Feed">🔔 RSS Feed</a></li>
+                    <li><a href="mailto:hello@understandingconsciousness.com" title="Email">✉️ Email</a></li>
+                    <!-- Add more social links as needed -->
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Mindful Quotes</h4>
+                <blockquote class="footer-quote" id="mindful-quote">
+                    "The present moment is the only time over which we have dominion." - Thích Nhất Hạnh
+                </blockquote>
+            </div>
+        </div>
+
+        <!-- Copyright and attribution -->
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                <p>
+                    © {{ now.Format "2006" }} Understanding Consciousness. 
+                    Made with 💜 and mindfulness using <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 
+                    and the <a href="https://github.com/adityatelange/hugo-PaperMod" target="_blank" rel="noopener">PaperMod</a> theme.
+                </p>
+            </div>
+            
+            <!-- Theme toggle and back to top -->
+            <div class="footer-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark/light theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button id="back-to-top" class="back-to-top" title="Back to top">
+                    ↑ Top
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mindfulness reminder -->
+    <div class="mindfulness-reminder">
+        <p>✨ Take a moment to breathe deeply and appreciate this present moment ✨</p>
+    </div>
 </footer>
+
+<!-- JavaScript for enhanced functionality -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Rotating mindful quotes
+    const quotes = [
+        "The present moment is the only time over which we have dominion. - Thích Nhất Hạnh",
+        "Wherever you are, be there totally. - Eckhart Tolle",
+        "The mind is everything. What you think you become. - Buddha",
+        "Peace comes from within. Do not seek it without. - Buddha",
+        "Mindfulness is a way of befriending ourselves and our experience. - Jon Kabat-Zinn",
+        "The little things? The little moments? They aren't little. - Jon Kabat-Zinn",
+        "Life is available only in the present moment. - Thích Nhất Hạnh",
+        "Awareness is the greatest agent for change. - Eckhart Tolle",
+        "Be present in all things and thankful for all things. - Maya Angelou",
+        "The quieter you become, the more able you are to hear. - Rumi"
+    ];
+    
+    const quoteElement = document.getElementById('mindful-quote');
+    if (quoteElement) {
+        // Change quote every 10 seconds
+        setInterval(() => {
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            quoteElement.style.opacity = '0';
+            setTimeout(() => {
+                quoteElement.textContent = randomQuote;
+                quoteElement.style.opacity = '1';
+            }, 300);
+        }, 10000);
+    }
+    
+    // Back to top functionality
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        // Show/hide back to top button
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // Smooth scroll to top
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    // Theme toggle functionality (if not handled by PaperMod)
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle && !document.getElementById('theme-toggle-main')) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon
+            const icon = themeToggle.querySelector('.theme-icon');
+            icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+        
+        // Set initial theme icon
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        const icon = themeToggle.querySelector('.theme-icon');
+        icon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+    }
+    
+    // Mindfulness breathing reminder
+    const breathingReminder = document.querySelector('.mindfulness-reminder p');
+    if (breathingReminder) {
+        setInterval(() => {
+            breathingReminder.style.transform = 'scale(1.02)';
+            breathingReminder.style.opacity = '0.8';
+            setTimeout(() => {
+                breathingReminder.style.transform = 'scale(1)';
+                breathingReminder.style.opacity = '1';
+            }, 1000);
+        }, 30000); // Every 30 seconds
+    }
+});
+
+// Progressive Web App functionality
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        // Register service worker if available
+        navigator.serviceWorker.register('/sw.js').catch(() => {
+            // Service worker registration failed, but that's okay
+        });
+    });
+}
+</script>
+
+<style>
+/* Footer-specific styles */
+.footer {
+    margin-top: 4rem;
+    padding: 3rem 2rem 1rem;
+    background: var(--primary-gradient);
+    color: white;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="footerGrad" cx="50%" cy="50%"><stop offset="0%" stop-color="white" stop-opacity="0.05"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><circle cx="10" cy="10" r="1" fill="url(%23footerGrad)"/><circle cx="90" cy="30" r="0.5" fill="url(%23footerGrad)"/><circle cx="30" cy="90" r="1.5" fill="url(%23footerGrad)"/><circle cx="70" cy="70" r="0.8" fill="url(%23footerGrad)"/></svg>') repeat;
+    opacity: 0.4;
+    animation: twinkle 15s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.7; }
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-main {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, #fff, #f0f0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-description {
+    font-size: 1rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.footer-section a:hover {
+    color: white;
+    padding-left: 0.5rem;
+}
+
+.footer-quote {
+    font-style: italic;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+    padding-left: 1rem;
+    margin: 0;
+    transition: opacity 0.3s ease;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-copyright {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.footer-copyright a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer-copyright a:hover {
+    text-decoration: underline;
+}
+
+.footer-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.theme-toggle, .back-to-top {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.theme-toggle:hover, .back-to-top:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+.back-to-top {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mindfulness-reminder {
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 1.5rem;
+}
+
+.mindfulness-reminder p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin: 0;
+    transition: all 1s ease;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 1rem 1rem;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .footer-actions {
+        justify-content: center;
+    }
+}
+</style>
