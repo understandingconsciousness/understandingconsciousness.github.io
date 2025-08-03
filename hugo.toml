@@ -26,10 +26,6 @@ theme = 'PaperMod'
   tocopen = false
   hidePoweredBy = true
 
-  [params.homeInfoParams]
-    Title = "Welcome to My Blog"
-    Content = "This blog captures my personal reflections on daily life and the discoveries I make during meditation."
-
 [[menu.main]]
   identifier = "home"
   name = "Home"
