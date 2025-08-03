@@ -28,7 +28,7 @@ theme = 'PaperMod'
 
   [params.homeInfoParams]
     Title = "Welcome to My Blog"
-    Content = "In this blog, I document some of "
+    Content = "This blog captures my personal reflections on daily life and the discoveries I make during meditation."
 
 [[menu.main]]
   identifier = "home"
